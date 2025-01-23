@@ -30,7 +30,7 @@ module.exports = NodeHelper.create({
 				 acceptGdpr: true,
 				 progress: (data) => this.handleProgressEvent(data)});
     } catch (err) {
-      Log.error("[internet-monitor]", err.message);
+      Log.error("[MMM-internet-monitor]", err.message);
     } finally {
       if (Check) {
         Log.debug("Result: ", Check);

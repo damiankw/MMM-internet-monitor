@@ -1,5 +1,5 @@
 {
-  "name": "internet-speed",
+  "name": "MMM-internet-monitor",
   "version": "2.0.0",
   "description": "Displays ping, download and upload speed on your smart mirror.",
   "repository": {

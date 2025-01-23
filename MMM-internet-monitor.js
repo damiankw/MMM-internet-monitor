@@ -3,7 +3,7 @@
  * Created by debayan on 7/24/16.
  */
 
-Module.register("internet-monitor", {
+Module.register("MMM-internet-monitor", {
 
   defaults: {
     serverId: "",
@@ -21,7 +21,7 @@ Module.register("internet-monitor", {
   updating: false,
 
   start () {
-    Log.log("Internet-monitor module started!");
+    Log.log("MMM-Internet-monitor module started!");
     this.sendSocketNotification("Start", this.config);
   },
 
@@ -34,7 +34,7 @@ Module.register("internet-monitor", {
   },
 
   getStyles () {
-    return ["internet-monitor.css"];
+    return ["MMM-internet-monitor.css"];
   },
 
   notificationReceived (notification, payload, sender) {
