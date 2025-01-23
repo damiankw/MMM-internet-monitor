@@ -73,10 +73,28 @@ Module.register("MMM-internet-monitor", {
       $(container).html("Internal: " + payload.interface.internalIp + " | External: " + payload.interface.externalIp);
 
       if (this.config.verbose) {
-        $("#internetData > div").html(`    Server:   ${payload.server.host}`)
-          .append("<br/>" +
-          ` Location:   ${payload.server.location} (${payload.server.country})`)
-          .append("<br/></div>");
+        $("#internetData > div").html(`
+          <table>
+            <tr>
+              <td>ISP:</td>
+              <td>${payload.interface.isp}</td>
+              <td>External IP:</td>
+              <td>${payload.interface.externalIp}</td>
+            </tr>
+            <tr>
+              <td>Adapter:</td>
+              <td>${payload.interface.name}</td>
+              <td>Internal IP:</td>
+              <td>${payload.interface.internalIp}</td>
+            </tr>
+            <tr>
+              <td>Server:</td>
+              <td>${payload.server.name}</td>
+              <td>Location:</td>
+              <td>${payload.server.location} (${payload.server.country})</td>
+            </tr>
+          </table>
+        `);
       }
 
     }
