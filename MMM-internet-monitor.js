@@ -72,8 +72,6 @@ Module.register("MMM-internet-monitor", {
         $(container).appendTo("#internetData");
       }
 
-      $(container).html("Internal: " + payload.interface.internalIp + " | External: " + payload.interface.externalIp);
-
       if (this.config.verbose) {
         $("#internetVerbose").html(`
           <table width="100%" cellpadding="3">
@@ -222,7 +220,7 @@ Module.register("MMM-internet-monitor", {
         max: this.config.maxDownloadGaugeScale,
         title: "Download Speed",
         refreshAnimationType: "linear",
-        gaugeWidthScale: 0.8,
+        gaugeWidthScale: 0.5,
         valueFontColor: "#FFFFFF",
         valueFontFamily: "Roboto Condensed",
         titleFontFamily: "Roboto Condensed",
@@ -242,7 +240,7 @@ Module.register("MMM-internet-monitor", {
         max: this.config.maxUploadGaugeScale,
         title: "Upload Speed",
         refreshAnimationType: "linear",
-        gaugeWidthScale: 0.8,
+        gaugeWidthScale: 0.5,
         valueFontColor: "#FFFFFF",
         valueFontFamily: "Roboto Condensed",
         titleFontFamily: "Roboto Condensed",
