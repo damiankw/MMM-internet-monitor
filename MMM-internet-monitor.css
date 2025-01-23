@@ -1,5 +1,6 @@
 #downloadSpeedGauge, #uploadSpeedGauge{
-    awidth:200px; aheight:160px;
+    width: 200px;
+    aheight:160px;
     display: inline-block;
     margin: 1em;
 }
