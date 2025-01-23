@@ -13,7 +13,8 @@ Module.register("MMM-internet-monitor", {
     displayStrength: true,
     displaySpeed: true,
     strengthIconSize: 80,
-    maxGaugeScale: 100
+    maxUploadGaugeScale: 100,
+    maxDownloadGaugeScale: 100
   },
   payload: [],
 
@@ -53,13 +54,13 @@ Module.register("MMM-internet-monitor", {
           this.downloadBarState = "started";
         }
         Log.log("updating DOWNLOAD");
-        this.download.refresh(payload, this.config.maxGaugeScale);
+        this.download.refresh(payload, this.config.maxDownloadGaugeScale);
       }
     }
     if (notification === "uploadSpeedProgress") {
       if (this.config.displaySpeed) {
         Log.log("updating UPLOAD");
-        this.upload.refresh(payload, this.config.maxGaugeScale);
+        this.upload.refresh(payload, this.config.maxUploadGaugeScale);
       }
     }
     let container;
@@ -67,25 +68,32 @@ Module.register("MMM-internet-monitor", {
       if (!this.updating) {
         container = document.createElement("div");
         container.style = "text-align: left; display: inline-block; font-size: 8pt; width: 100%;";
+        container.id = "internetVerbose";
         $(container).appendTo("#internetData");
       }
 
       $(container).html("Internal: " + payload.interface.internalIp + " | External: " + payload.interface.externalIp);
 
       if (this.config.verbose) {
-        $("#internetData > div").html(`
-          <table width="100%" bgcolor="#FFFFFF" style="border: 1px solid #FFFFFF; padding: 5px;" cellspacing="1" cellpadding="3">
+        $("#internetVerbose").html(`
+          <table width="100%" cellpadding="3">
             <tr>
-              <td>ISP:</td>
-              <td>${payload.isp}</td>
+              <td>Jitter:</td>
+              <td>${payload.ping.jitter}ms</td>
+              <td>Latency:</td>
+              <td>${payload.ping.latency}ms</td>
+            </tr>
+            <tr>
+              <td>Internal IP:</td>
+              <td>${payload.interface.internalIp}</td>
               <td>External IP:</td>
               <td>${payload.interface.externalIp}</td>
             </tr>
             <tr>
               <td>Adapter:</td>
               <td>${payload.interface.name}</td>
-              <td>Internal IP:</td>
-              <td>${payload.interface.internalIp}</td>
+              <td>ISP:</td>
+              <td>${payload.isp}</td>
             </tr>
             <tr>
               <td>Server:</td>
@@ -211,7 +219,7 @@ Module.register("MMM-internet-monitor", {
         parentNode: downloadSpeedGauge,
         value: 0,
         min: 0,
-        max: this.config.maxGaugeScale,
+        max: this.config.maxDownloadGaugeScale,
         title: "Download Speed",
         refreshAnimationType: "linear",
         gaugeWidthScale: 0.8,
@@ -231,7 +239,7 @@ Module.register("MMM-internet-monitor", {
         parentNode: uploadSpeedGauge,
         value: 0,
         min: 0,
-        max: this.config.maxGaugeScale,
+        max: this.config.maxUploadGaugeScale,
         title: "Upload Speed",
         refreshAnimationType: "linear",
         gaugeWidthScale: 0.8,

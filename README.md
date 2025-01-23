@@ -35,7 +35,8 @@ modules: [
                 displayStrength: true,
                 displaySpeed: true,
                 strengthIconSize: 80,
-                maxGaugeScale: 100,
+                maxDownloadGaugeScale: 1000,
+                maxUploadGaugeScale: 100,
             },
  }
 ]
@@ -57,7 +58,8 @@ modules: [
                 displayStrength: true,
                 displaySpeed: true,
                 strengthIconSize: 80,
-                maxGaugeScale: 100,
+                maxDownloadGaugeScale: 1000,
+                maxUploadGaugeScale: 100,
                 wifiSymbol:{
                     size: 50,
                     fullColor: '#3afc25',
@@ -81,6 +83,7 @@ The following properties can be configured:
 | displayStrength | Display Internet Strength<br><b>Possible values:</b> <code>true</code> or <code>false</code><br><b>Default value:</b> <code>true</code><br><img src="https://github.com/BrianHepler/internet-monitor/blob/master/.previews/preview_strength.png" ></img> |
 | displaySpeed | Display download and upload speed gauges<br><b>Possible values:</b> <code>true</code> or <code>false</code><br><b>Default value:</b> <code>true</code><br><img src="https://github.com/BrianHepler/internet-monitor/blob/master/.previews/preview_speed.png" ></img> |
 | strengthIconSize | Size of the strength icon<br><b>Default value:</b> <code>80</code> |
-| maxGuageScale | Maximum gauge value (Mbps)<br><b>Default value:</b> <code>100</code> |
+| maxDownloadGaugeScale | Maximum gauge value for download (Mbps)<br><b>Default value:</b> <code>100</code> |
+| maxUploadGaugeScale | Maximum gauge value for upload (Mbps)<br><b>Default value:</b> <code>100</code> |
 | serverId | Test against specific SpeedTest server (optional)<br><b>Default value:</b> <code>''</code><br>List of servers <a href="https://www.speedtest.net/speedtest-servers-static.php" target="new">can be found at SpeedTest</a>. |
 | wifiSymbol | Customize WiFi Symbol (Optional)<br><p><ul><li><code>size</code> Size of the WiFi Symbol</li><li><code>fullColor</code>Hex color code for full strength &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/BrianHepler/internet-monitor/blob/master/.previews/full.gif" width=10%></img></li><li><code>almostColor</code>Hex color code for almost strength &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/BrianHepler/internet-monitor/blob/master/.previews/almost.gif" width=10%></img></li><li><code>halfColor</code>Hex color code for half strength &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/BrianHepler/internet-monitor/blob/master/.previews/half.gif" width=10%></img></li><li><code>noneColor</code>Hex color code for 0 strength &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="https://github.com/BrianHepler/internet-monitor/blob/master/.previews/none.png" width=10%></img></li></ul></p> |
