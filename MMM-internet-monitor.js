@@ -66,7 +66,7 @@ Module.register("MMM-internet-monitor", {
     if (notification === "data") {
       if (!this.updating) {
         container = document.createElement("div");
-        container.style = "text-align: left; display: inline-block; font-size: 8pt";
+        container.style = "text-align: left; display: inline-block; font-size: 8pt; width: 100%;";
         $(container).appendTo("#internetData");
       }
 
@@ -74,7 +74,7 @@ Module.register("MMM-internet-monitor", {
 
       if (this.config.verbose) {
         $("#internetData > div").html(`
-          <table width="100%" style="border: 1px solid #FFFFFF; padding: 5px;">
+          <table width="100%" bgcolor="#FFFFFF" style="border: 1px solid #FFFFFF; padding: 5px;" cellspacing="1" cellpadding="3">
             <tr>
               <td>ISP:</td>
               <td>${payload.isp}</td>
