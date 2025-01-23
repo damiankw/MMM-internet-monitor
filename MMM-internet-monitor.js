@@ -64,17 +64,21 @@ Module.register("MMM-internet-monitor", {
     }
     let container;
     if (notification === "data") {
+      if (!this.updating) {
+        container = document.createElement("div");
+        container.style = "text-align: left; display: inline-block; font-size: 8pt";
+        $(container).appendTo("#internetData");
+      }
+
+      $(container).html("Internal: " + payload.interface.internalIp + " | External: " + payload.interface.externalIp);
+
       if (this.config.verbose) {
-        if (!this.updating) {
-          container = document.createElement("div");
-          container.style = "text-align: left; display:inline-block;";
-          $(container).appendTo("#internetData");
-        }
         $("#internetData > div").html(`    Server:   ${payload.server.host}`)
           .append("<br/>" +
           ` Location:   ${payload.server.location} (${payload.server.country})`)
           .append("<br/></div>");
       }
+
     }
 
     if (notification === "ping") {
