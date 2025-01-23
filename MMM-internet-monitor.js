@@ -74,10 +74,10 @@ Module.register("MMM-internet-monitor", {
 
       if (this.config.verbose) {
         $("#internetData > div").html(`
-          <table>
+          <table width="100%" style="border: 1px solid #FFFFFF; padding: 5px;">
             <tr>
               <td>ISP:</td>
-              <td>${payload.interface.isp}</td>
+              <td>${payload.isp}</td>
               <td>External IP:</td>
               <td>${payload.interface.externalIp}</td>
             </tr>
